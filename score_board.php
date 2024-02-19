@@ -10,7 +10,6 @@ if (isset($_GET['success'])){
 $page_header = "Quiz Score Board";
 
 include "controller/session.php";
-
 $page_header = "";
 
 include "base.php";
@@ -42,7 +41,6 @@ function get_score_from_quiz($user_id, $quiz_id){
 	
 	return $score;
 }
-
 $quiz_id_array = get_quiz_id_array($user["id"]);
 $last_quiz_id = $quiz_id_array[0];
 
@@ -60,9 +58,52 @@ $score = get_score_from_quiz($user["id"], $last_quiz_id);
 <div class="logout">
 <a href="play_quiz.php" >Play Again</a>
 </div>
-           <div class="certificate">
+<br>
+<br>
+<?php
+// Sample participant details
+$participantName = 'user';
+$quizScore = $score;
+$dateCompleted = date("F j, Y");
+
+// Function to generate a certificate
+function generateCertificate($name, $score, $date) {
+    // Certificate HTML template
+    if ($score>=70)
+    {
+    $certificateHTML = "
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Quiz Certificate</title>
+    </head>
+    <body class='certificate'>
+        <div class='certificate-quiz'>
+            <div class='title-certificate'>Certificate of Achievement</div>
+            <div class='content-certificate'>
+                This is to certify that <span class='certificate-name'>$name</span> has successfully completed the quiz<br>
+                and achieved a score of <span class='certificate-name'>$score</span>.
+                <br><br>
+                Date: $date
+            </div>
+        </div>
+    </body>
+    </html>
+    ";
+    
+    return $certificateHTML;
+}
+}
+
+// Generate certificate
+$certificate = generateCertificate($participantName, $quizScore, $dateCompleted);
+
+// Output the certificate
+echo $certificate;
+?>
+  <!-- <div class="certificate">
     <a  href="certificate.php" >Certificate  </a>
-</div>
+</div> -->
  </body>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,4 +155,3 @@ $score = get_score_from_quiz($user["id"], $last_quiz_id);
 <div>
 </body>
 </html>
- 

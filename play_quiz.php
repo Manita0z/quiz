@@ -6,7 +6,6 @@ $page_header = "";
 
 include "base.php";
 include "controller/quiz_controller.php";
-
 $data = json_decode($json_response, true);
 $is_score_board = $data["is_score_board"];
 
@@ -66,6 +65,8 @@ if ($is_score_board) {
 			countdown--;
 		}
 	}
+
+
 
 
 	// Set up the interval to call the updateTimer function every second (1000 milliseconds)
