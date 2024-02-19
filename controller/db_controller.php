@@ -6,9 +6,6 @@ $db_password = "";
 $db_name = "quiz";
 
 
-
-
-
 function run_query($query){
 	global $db_hostname, $db_username, $db_password, $db_name;
 	// Create connection
