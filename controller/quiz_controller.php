@@ -30,11 +30,10 @@ function check_answer($answer_submitted, $question_id, $asked_question_id){
     if ($correct_option == $answer_submitted){
         echo '<audio autoplay><source src="if right.mp3" type="audio/mpeg"></audio>';
         $score=10;
-       
-    }else{
+    }
+    else{
         echo '<audio autoplay><source src="if wrong.mp3" type="audio/mpeg"></audio>';
         $score=0;
-      
     }
     $update_query = "UPDATE asked_question SET submitted_ans = '" . $answer_submitted . "', score=" . $score . " WHERE id=" . $asked_question_id . ";";
     run_query($update_query);
