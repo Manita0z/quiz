@@ -58,9 +58,8 @@ if ($is_score_board) {
 
 		if (countdown === 0) {
 			clearInterval(timerInterval); // Stop the timer
-			// timerElement.textContent=
+			// timerElement.textContent
 		}
-	 
 		else {
 			countdown--;
 		}

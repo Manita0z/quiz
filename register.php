@@ -2,7 +2,7 @@
 
 $error_message = isset($_GET['error']) ? urldecode($_GET['error']) : '';
 $success_message = isset($_GET['success']) ? urldecode($_GET['success']) : '';
-$page_header = "Register Page";
+$page_header = "";
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ $page_header = "Register Page";
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="register">
-	<h2><?php echo $page_header ?></h2>
+	<h1 class="register-title">Register Page</h1>
 	<!-- <a href="index.php">Home</a> -->
 	<form class="form-class" method="post" action="/controller/register_controller.php">
         <p style="color:red;"><?php echo $error_message ?></p>

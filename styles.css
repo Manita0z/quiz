@@ -99,9 +99,9 @@ input.input-class {
 }
 
 a {
-	background-color: #eeff01; 
+	background-color: #04a13d; 
     font-weight: 900;
-    color: #000305;
+    color:black;
     text-decoration: none;
     font-size: x-large;
     margin-top: 10px;
@@ -115,7 +115,8 @@ a:hover {
 
 /* Style visited anchor tags */
 a:visited {
-    color: #34495e; 
+    color: #090909; 
+    font-weight: 600;
 }
 h1.score{
     text-align: center;
@@ -314,9 +315,21 @@ h1.play_now
     text-align: center;
     color: rgb(200, 207, 7);
 }
+h1.register-title
+{
+    text-align: center;
+}
+h1.login-title
+{
+    text-align: center;
+}
+.link-to-home
+{
+  text-align: center;
+}
 body.register
 {
-     background-color:  white;
+     background-color:white;
 }
 body.login
 {
