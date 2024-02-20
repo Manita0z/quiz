@@ -37,41 +37,38 @@ if ($is_score_board) {
 ?>
 <body class="playquiz">
 <div class="quiz-round-title"><?php echo capitalize($question_type)?> </div>
-	<h1 class="play_now"></h1>
-<form method="post" action="">
+<h1 class="play_now"></h1>
+<form method="post" action="" id="id_quiz_form">
+
 	<div class="main-content">
 		<div class="margin-panel">
 			<!-- <div class="quiz-round-title"><?php echo capitalize($question_type)?> </div> -->
 			<input type="hidden" name="uuid" value="<?php echo $uuid ?>" />
 			<p class="question-text">  <?php echo " ".$question_number?><?php echo ") "?><?php echo  $question ?> </p>
-			<h4 id="timer">Countdown:30 seconds</h4>
-			<button class="timer-button">Next</button>
-<script>
-	// Set the initial countdown value
-	let countdown = 30;
-	// Get the element where the timer will be displayed
-	const timerElement = document.getElementById('timer');
+			<h4 id="timer">30 sec</h4>
+	<script>
+    let Timeleft = 30;  // Set the initial countdown value
+    const timerElement = document.getElementById('timer');
+    const quizForm = document.getElementById('id_quiz_form');
+    function updateTimer() {
+        timerElement.textContent = ` ${Timeleft} sec`;
 
-	// Function to update the timer display and check for the end of the countdown
-	function updateTimer() {
-		timerElement.textContent = `Countdown: ${countdown} seconds`;
+        if (Timeleft=== 0) {
+            clearInterval(timerInterval);
+            // timerElement.textContent = 'Time up oops!...';
+            submitForm();
+              // Call the function to submit the form
+        } else {
+            Timeleft--;
+        }
+    }
 
-		if (countdown === 0) {
-			clearInterval(timerInterval); // Stop the timer
-			// timerElement.textContent
-		}
-		else {
-			countdown--;
-		}
-	}
+    function submitForm() {
+        quizForm.submit();  // Submit the form
+    }
 
-
-
-
-	// Set up the interval to call the updateTimer function every second (1000 milliseconds)
-	const timerInterval = setInterval(updateTimer, 1000);
+    const timerInterval = setInterval(updateTimer, 1000);
 </script>
-
 			<ul class="no-list option-list">
 		    	<?php
 		    		foreach ($options as $index => $option) {

@@ -14,7 +14,6 @@ $page_header = "";
 
 include "base.php";
 
-
 function get_quiz_id_array($user_id){
 	$query = "select id from quiz where user_id=" . $user_id . " order by id desc;" ;
 	$query_result = run_select_query($query);
@@ -65,7 +64,6 @@ $score = get_score_from_quiz($user["id"], $last_quiz_id);
 $participantName = 'user';
 $quizScore = $score;
 $dateCompleted = date("F j, Y");
-
 // Function to generate a certificate
 function generateCertificate($name, $score, $date) {
     // Certificate HTML template
@@ -130,25 +128,15 @@ echo $certificate;
 <script>
 	document.getElementById('feedbackForm').addEventListener('submit', function(event) {
     event.preventDefault();
-
-    // Gather form data
     const formData = new FormData(event.target);
     const feedbackData = {};
     formData.forEach((value, key) => {
         feedbackData[key] = value;
     });
-
-    // Simulate sending feedback to a server
-    // Here you would typically make an AJAX request to send data to the server
-    // For demonstration purposes, we'll just log the data to the console
     console.log('Feedback submitted:', feedbackData);
-
-    // Show confirmation message
     const confirmationDiv = document.getElementById('confirmation');
     confirmationDiv.innerText = 'Thank you for your feedback!';
     confirmationDiv.style.display = 'block';
-
-    // Reset form fields
     event.target.reset();
 });
 </script>
