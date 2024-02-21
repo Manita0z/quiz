@@ -25,6 +25,7 @@ rem set CREATE_TABLE=%MYSQL_BIN_PATH%\mysql.exe -h %mysql_host% -u %MYSQL_USER% 
 %create_db_cmd%
 
 echo Database %MYSQL_DATABASE% created successfully...........
+
 REM ----------------------------------------------------------------------------------------------------------------
 
 
@@ -77,3 +78,11 @@ set create_table_cmd=%quiz_query_cmd% -e %create_table_query%
 %create_table_cmd%
 echo Table %table_name% created successfully.............
 REM ------------------------------------------------------------------------------------------------------------------
+REM Create Feedback table
+set table_name=feedback
+set create_table_query="CREATE TABLE IF NOT EXISTS %table_name% (feedback varchar(100) );"
+set create_table_cmd=%quiz_query_cmd% -e %create_table_query%
+
+:: Run the MySQL command
+%create_table_cmd%
+echo Table %table_name% created successfully.............
